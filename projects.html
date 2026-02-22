@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- SEO Meta Tags -->
+	<meta name="description" content="Sakshi Biranje - Professional Projects in AI, Machine Learning, Software Engineering, and Data Science. Showcase of deployed applications and completed projects.">
+	<meta name="keywords" content="Sakshi Biranje, Projects, AI, Machine Learning, Full Stack Development, Software Engineering, Web Development">
+	<meta name="author" content="Sakshi Biranje">
+	
+	<title>Projects - Sakshi Biranje</title>
+	
+	<!--  *****   Link To Custom CSS Style sheet   *****  -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<!--  *****   Link To Font Awesome Icons   *****  -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+
+	<!--   ***** Link To Magnific Popup CSS *****   -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"/>
+
+	<style>
+		/* Additional styles for certifications page */
+		.certifications-page {
+			padding-top: 100px;
+			min-height: 100vh;
+			background: linear-gradient(135deg, var(--bg-clr-one) 0%, var(--bg-clr-two) 100%);
+		}
+
+		.back-button {
+			position: fixed;
+			top: 20px;
+			left: 20px;
+			z-index: 1000;
+			background-color: var(--primary-clr);
+			color: var(--bg-clr-one);
+			padding: 10px 20px;
+			border-radius: 25px;
+			text-decoration: none;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 14px;
+			font-weight: 500;
+			transition: all 0.3s ease;
+			box-shadow: 0 4px 15px rgba(5,85,92,0.2);
+		}
+
+		.back-button:hover {
+			background-color: var(--links-clr);
+			transform: translateX(-5px);
+			box-shadow: 0 6px 20px rgba(5,85,92,0.3);
+		}
+
+		.certifications-page .gallery {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+			gap: 30px;
+			padding: 0 8%;
+			margin-bottom: 50px;
+		}
+
+		.certifications-page .gallery .item {
+			position: relative;
+			width: 100%;
+			aspect-ratio: 1.5;
+			border-radius: 12px;
+			overflow: hidden;
+			cursor: pointer;
+			box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+			transition: all 0.3s ease;
+			background: white;
+		}
+
+		.certifications-page .gallery .item:hover {
+			transform: translateY(-10px);
+			box-shadow: 0 15px 40px rgba(5,85,92,0.2);
+		}
+
+		.cert-info {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: linear-gradient(to top, rgba(5,85,92,0.95), transparent);
+			padding: 20px;
+			transform: translateY(100%);
+			transition: transform 0.3s ease;
+		}
+
+		.certifications-page .gallery .item:hover .cert-info {
+			transform: translateY(0);
+		}
+
+		.cert-info h3 {
+			color: white;
+			font-size: 16px;
+			margin-bottom: 8px;
+			font-weight: 600;
+		}
+
+		.cert-info p {
+			color: rgba(255,255,255,0.9);
+			font-size: 13px;
+			margin-bottom: 12px;
+		}
+
+		.cert-info .cert-link {
+			display: inline-block;
+			padding: 8px 16px;
+			background-color: white;
+			color: var(--primary-clr);
+			text-decoration: none;
+			border-radius: 20px;
+			font-size: 13px;
+			font-weight: 600;
+			transition: all 0.3s ease;
+		}
+
+		.cert-info .cert-link:hover {
+			background-color: var(--primary-light-clr);
+			transform: scale(1.05);
+		}
+
+		.cert-badge {
+			position: absolute;
+			top: 15px;
+			right: 15px;
+			background-color: var(--primary-clr);
+			color: white;
+			padding: 5px 12px;
+			border-radius: 15px;
+			font-size: 11px;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			z-index: 10;
+		}
+
+		.stats-container {
+			display: flex;
+			justify-content: center;
+			gap: 40px;
+			margin: 40px 0 60px;
+			padding: 0 8%;
+			flex-wrap: wrap;
+		}
+
+		.stat-box {
+			text-align: center;
+			padding: 20px 30px;
+			background: white;
+			border-radius: 12px;
+			box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+			min-width: 150px;
+		}
+
+		.stat-box h2 {
+			font-size: 36px;
+			color: var(--primary-clr);
+			margin-bottom: 5px;
+		}
+
+		.stat-box p {
+			color: var(--text-clr);
+			font-size: 14px;
+		}
+
+		@media (max-width: 768px) {
+			.certifications-page .gallery {
+				grid-template-columns: 1fr;
+				padding: 0 5%;
+			}
+
+			.back-button {
+				top: 10px;
+				left: 10px;
+				font-size: 12px;
+				padding: 8px 15px;
+			}
+
+			.stats-container {
+				gap: 15px;
+			}
+
+			.stat-box {
+				min-width: 120px;
+				padding: 15px 20px;
+			}
+
+			.stat-box h2 {
+				font-size: 28px;
+			}
+		}
+	</style>
+</head>
+<body>
+<!--   *** Website Container Starts ***   -->
+<div class="Website-container">
+
+	<!-- Back Button -->
+	<a href="index.html#projects" class="back-button">
+		<i class="fa-solid fa-arrow-left"></i>
+		<span>Back to Portfolio</span>
+	</a>
+
+	<!--   *** Certifications Page Starts ***   -->
+	<section class="certifications-page reusable">
+		
+		<!--   === Headings Text Starts ===   -->
+		<header class="headings">
+			<h3>My Projects</h3>
+			<h1>Transforming Ideas Into Reality</h1>
+			<p>A comprehensive showcase of deployed applications, completed projects, and ongoing developments across AI, ML, and full-stack web development.</p>
+		</header>
+		<!--   === Headings Text Ends ===   -->
+
+		<!--   === Stats Container Starts ===   -->
+		<div class="stats-container">
+			<div class="stat-box">
+				<h2>12+</h2>
+				<p>Total Projects</p>
+			</div>
+			<div class="stat-box">
+				<h2>5+</h2>
+				<p>Deployed Projects</p>
+			</div>
+			<div class="stat-box">
+				<h2>100+</h2>
+				<p>Hours Work</p>
+			</div>
+		</div>
+		<!--   === Stats Container Ends ===   -->
+
+		<!--   === Gallery Starts ===   -->
+		<div class="gallery">
+			
+			<!--   === Certificate 1 ===   -->
+			<div class="item cert">
+				<img src="images/krushiai.jpg" alt="Software Engineer Certificate">
+				<div class="cert-info">
+					<h3>KrushiAI - AI Farming Assistant</h3>
+					<a href="https://krushiai-aifarmingassistant.netlify.app/" target="_blank" rel="noopener noreferrer" class="cert-link">
+						View Project <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+
+			<!--   === Certificate 2 ===   -->
+			<div class="item cert">
+				<img src="images/recommendation.jpg" alt="Data Analytics Certificate">
+				<div class="cert-info">
+					<h3>Recommendation System</h3>
+					<a href="https://share.streamlit.io/user/sakshibiranje" target="_blank" rel="noopener noreferrer" class="cert-link">
+						View Project <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+
+			<!--   === Certificate 3 ===   -->
+			<div class="item cert">
+				<img src="images/placement-portal.jpg" alt="IBM AI Certificate">
+				<div class="cert-info">
+					<h3>Placement Portal</h3>
+					<a href="https://github.com/SakshiBiranje/Placement-Portal" target="_blank" rel="noopener noreferrer" class="cert-link">
+						View Project <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+
+			<!--   === Certificate 4 ===   -->
+			<div class="item cert">
+				<img src="images/review.jpg" alt="HP Data Science Certificate">
+				<div class="cert-info">
+					<h3>Smart Review Classifier</h3>
+					<a href="https://github.com/SakshiBiranje/Smart-Review-Classifer" target="_blank" rel="noopener noreferrer" class="cert-link">
+						View Project <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+
+			<!--   === Certificate 5 ===   -->
+			<div class="item cert">
+				<img src="images/imt.jpg" alt="SQL Certificate">
+				<div class="cert-info">
+					<h3>IMT : Ichalkaranji Municipal Transport</h3>
+					<a href="https://github.com/SakshiBiranje/IMT-Ichalkaranji-Municipal-Transport" target="_blank" rel="noopener noreferrer" class="cert-link">
+						View Project <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+
+			<!--   === Certificate 6 ===   -->
+			<div class="item cert">
+				<img src="images/student-management-system.jpg" alt="Java Certificate">
+				<div class="cert-info">
+					<h3>Student Management System</h3>
+					<a href="https://github.com/SakshiBiranje/Student-Management-System-In-JAVA" target="_blank" rel="noopener noreferrer" class="cert-link">
+						View Project <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+
+			<div class="item cert">
+				<img src="images/task-management-system.jpg" alt="SQL Certificate">
+				<div class="cert-info">
+					<h3>Task Management System</h3>
+					<a href="https://github.com/SakshiBiranje/Task-Management-System" target="_blank" rel="noopener noreferrer" class="cert-link">
+						View Project <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+
+			<div class="item cert">
+				<img src="images/SaaS.png" alt="SQL Certificate">
+				<div class="cert-info">
+					<h3>SaaS Subscription Management Platform</h3>
+					<a href="https://github.com/SakshiBiranje/SaaS-Subscription-Management-Platform" target="_blank" rel="noopener noreferrer" class="cert-link">
+						View Project <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+
+			<div class="item cert">
+				<img src="images/hospital-management-system.jpg" alt="SQL Certificate">
+				<div class="cert-info">
+					<h3>Hospital Management System</h3>
+					<a href="https://github.com/SakshiBiranje/Hospital-Management-System" target="_blank" rel="noopener noreferrer" class="cert-link">
+						View Project <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+
+
+			<div class="item cert">
+				<img src="images/enterprise-inventory-management-system.jpg" alt="SQL Certificate">
+				<div class="cert-info">
+					<h3>Enterprise Inventory Management System</h3>
+					<a href="https://github.com/SakshiBiranje/Enterprise-Inventory-Management-System" target="_blank" rel="noopener noreferrer" class="cert-link">
+						View Project <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+
+			<div class="item cert">
+				<img src="images/atm-management-system.jpg" alt="SQL Certificate">
+				<div class="cert-info">
+					<h3>ATM Management System</h3>
+					<a href="https://github.com/SakshiBiranje/ATM-Management-System" target="_blank" rel="noopener noreferrer" class="cert-link">
+						View Project <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+
+			<div class="item cert">
+				<img src="images/payroll-management-system.png" alt="SQL Certificate">
+				<div class="cert-info">
+					<h3>Payroll Management System</h3>
+					<a href="https://github.com/SakshiBiranje/Payroll-System-Java" target="_blank" rel="noopener noreferrer" class="cert-link">
+						View Project <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+
+
+			<div class="item cert">
+				<img src="images/movie-recommendation-system.jpg" alt="SQL Certificate">
+				<div class="cert-info">
+					<h3>Movie Recommendation System</h3>
+					<a href="https://github.com/SakshiBiranje/Movie-Recommendation-System" target="_blank" rel="noopener noreferrer" class="cert-link">
+						View Project <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+
+
+			<!--   === ADD MORE CERTIFICATES BELOW ===   -->
+			
+			<!--   === Certificate 7 - TEMPLATE ===   -->
+			<!-- 
+			<div class="item cert">
+				<span class="cert-badge">PLATFORM</span>
+				<img src="images/certificate-name.jpg" alt="Certificate Name">
+				<div class="cert-info">
+					<h3>Certificate Title</h3>
+					<p>Issued by Organization</p>
+					<a href="CERTIFICATE_URL" target="_blank" rel="noopener noreferrer" class="cert-link">
+						View Certificate <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+			-->
+
+			<!--   === Certificate 8 - TEMPLATE ===   -->
+			<!-- 
+			<div class="item cert">
+				<span class="cert-badge">PLATFORM</span>
+				<img src="images/certificate-name.jpg" alt="Certificate Name">
+				<div class="cert-info">
+					<h3>Certificate Title</h3>
+					<p>Issued by Organization</p>
+					<a href="CERTIFICATE_URL" target="_blank" rel="noopener noreferrer" class="cert-link">
+						View Certificate <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+			-->
+
+			<!--   === Certificate 9 - TEMPLATE ===   -->
+			<!-- 
+			<div class="item cert">
+				<span class="cert-badge">PLATFORM</span>
+				<img src="images/certificate-name.jpg" alt="Certificate Name">
+				<div class="cert-info">
+					<h3>Certificate Title</h3>
+					<p>Issued by Organization</p>
+					<a href="CERTIFICATE_URL" target="_blank" rel="noopener noreferrer" class="cert-link">
+						View Certificate <i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+			-->
+
+		</div>
+		<!--   === Gallery Ends ===   -->
+
+	</section>
+	<!--   *** Certifications Page Ends ***   -->
+
+	<!--   *** Footer Section Starts ***   -->
+	<footer class="page-footer">
+		<div class="footer-contents">
+			<p>Created by <span>Sakshi Biranje</span> | All rights reserved &copy; 2025</p>
+		</div>
+	</footer>
+	<!--   *** Footer Section Ends ***   -->
+
+</div>
+<!--   *** Website Container Ends ***   -->
+
+<!--   *** Link To JQuery ***   -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<!--   *** Link To Magnific Popup ***   -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<script>
+	// Scroll reveal animation
+	function revealElements() {
+		var reveals = document.querySelectorAll('.item');
+		
+		for (var i = 0; i < reveals.length; i++) {
+			var windowHeight = window.innerHeight;
+			var elementTop = reveals[i].getBoundingClientRect().top;
+			var elementVisible = 100;
+			
+			if (elementTop < windowHeight - elementVisible) {
+				reveals[i].style.opacity = '1';
+				reveals[i].style.transform = 'translateY(0)';
+			}
+		}
+	}
+
+	// Set initial state
+	document.addEventListener('DOMContentLoaded', function() {
+		var elements = document.querySelectorAll('.item');
+		elements.forEach(function(el) {
+			el.style.opacity = '0';
+			el.style.transform = 'translateY(30px)';
+			el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+		});
+		
+		setTimeout(revealElements, 100);
+	});
+
+	window.addEventListener('scroll', revealElements);
+
+	// Smooth scroll to top on page load
+	window.scrollTo({ top: 0, behavior: 'smooth' });
+</script>
+</body>
+</html>
